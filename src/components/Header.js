@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/styles.css";
 
+// Wednesday, October 2nd, 2024.
+
 export default function Header() {
   return (
     <div className="header">
