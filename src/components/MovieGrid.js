@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
 
 // Friday, October 4th, 2024.
-// Updated Monday, October 7th and 9th, 2024.
+// Updated October 7th, 9th and 11th, 2024.
 
 export default function MovieGrid() {
   const [movies, setMovies] = useState([]);
@@ -37,13 +37,29 @@ export default function MovieGrid() {
     );
   };
 
+  const getRating = (rating) => {
+    if (rating >= 8) {
+      return "Good";
+    } else if (rating >= 6) {
+      return "Ok";
+    } else {
+      return "Bad";
+    }
+  };
+
+  const matchesRating = (movie, rating) => {
+    return rating === "All" || getRating(movie.rating) === rating;
+  };
+
   const matchesSearchTerm = (movie, searchTerm) => {
     return movie.title.toLowerCase().includes(searchTerm.toLowerCase());
   };
 
   const filteredMovies = movies.filter(
     (movie) =>
-      matchesGenre(movie, genre) && matchesSearchTerm(movie, searchTerm)
+      matchesGenre(movie, genre) &&
+      matchesRating(movie, rating) &&
+      matchesSearchTerm(movie, searchTerm)
   );
 
   return (
