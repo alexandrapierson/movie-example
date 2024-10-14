@@ -4,19 +4,10 @@ import MovieCard from "./MovieCard";
 // Friday, October 4th, 2024.
 // Updated October 7th, 9th and 11th, 2024.
 
-export default function MovieGrid() {
-  const [movies, setMovies] = useState([]);
+export default function MovieGrid({ movies, watchlist, toggleWatchlist }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [genre, setGenre] = useState("All Genres");
   const [rating, setRating] = useState("All");
-
-  useEffect(() => {
-    fetch("scripts/movies.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setMovies(data);
-      });
-  }, []);
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -101,7 +92,12 @@ export default function MovieGrid() {
       {/* Grid of mMovies */}
       <div className="movies-grid">
         {filteredMovies.map((movie) => (
-          <MovieCard movie={movie} key={movie.id} />
+          <MovieCard
+            movie={movie}
+            key={movie.id}
+            toggleWatchlist={toggleWatchlist}
+            isWatchlisted={watchlist.includes(movie.id)}
+          />
         ))}
       </div>
     </div>
