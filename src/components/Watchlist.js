@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/styles.css";
 
+// Fiiday October 11th.
+
 export default function Watchlist() {
   return (
     <div>
