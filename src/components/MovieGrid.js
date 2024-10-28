@@ -78,7 +78,7 @@ export default function MovieGrid({ movies, watchlist, toggleWatchlist }) {
         </div>
 
         {/* Rating Selector */}
-        <div className="filter-slot">
+        <div className="filtNer-slot">
           <label>Rating</label>
           <select className="filter-dropdown" onChange={handleRatingChange}>
             <option>All</option>
