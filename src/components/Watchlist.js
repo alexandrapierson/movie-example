@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/styles.css";
+import MovieCard from "./MovieCard";
 
 // Friday October 11th.
 // Wednesday October 16th.
